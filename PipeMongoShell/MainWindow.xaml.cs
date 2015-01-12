@@ -53,11 +53,12 @@ namespace PipeMongoShell
             inputWriter.AutoFlush = true;
 
             inputWriter.WriteLine("use " + txtDatabase.Text + ";");
-            inputWriter.WriteLine(Environment.NewLine + txtInput.Text + ";");
+            inputWriter.WriteLine(Environment.NewLine + txtInput.Text);
 
             inputWriter.Close();
 
-            txtOutput.Text = outputReader.ReadToEnd();;
+            txtOutput.Text = outputReader.ReadToEnd();
+            process.WaitForExit();
         }
     }
 }
